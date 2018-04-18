@@ -1,4 +1,6 @@
 var express = require('express');
+const nodemailer = require('nodemailer');
+const xoauth2 = require('xoauth2');
 var app = express();
 var bodyParser = require('body-parser');
 var jwt = require('jsonwebtoken');
@@ -29,6 +31,7 @@ api.post('/complaints',(req,res) => {
     var index = complaints.push(req.body) - 1;
     var complaint = complaints[index];
     complaint.id = index;
+    complaint.date = new Date();
     console.log(req.body);  
      //complaints.push(req.body);
      res.sendStatus(200); 
@@ -50,6 +53,7 @@ auth.post('/register',(req,res)=>{
     var user = users[index];
     user.id = index;
     
+    //sendToken(user,res);
     sendToken(user,res);
     console.log(req.body);
     console.log(users);
