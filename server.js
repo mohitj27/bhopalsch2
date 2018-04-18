@@ -1,9 +1,26 @@
 var express = require('express');
 const nodemailer = require('nodemailer');
-const xoauth2 = require('xoauth2');
+//const xoauth2 = require('xoauth2');
+const smtpT = require('nodemailer-smtp-transport');
 var app = express();
 var bodyParser = require('body-parser');
 var jwt = require('jsonwebtoken');
+
+var transporter = nodemailer.createTransport({
+    service: 'gmail',
+   host: 'smtp.gmail.com',
+   port: 465,
+   secure: true,
+  
+   auth: {
+       
+           user: "mjjpjgms@gmail.com",
+           pass: "bhopalsch123"
+       
+   }
+});
+
+
 
 var complaints = [{title: 'Title', department: 'THIS IS BODY', description: 'asdsfersdscsdsdsds'},
 {title: 'Title', department: 'THIS IS BODY hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh', description: 'asdsfersdscsdsdsds'},
@@ -32,7 +49,40 @@ api.post('/complaints',(req,res) => {
     var complaint = complaints[index];
     complaint.id = index;
     complaint.date = new Date();
-    console.log(req.body);  
+    console.log(req.body);
+    if(complaint.department==="electricity"){
+    var mailOptions = {
+        from: 'Mohit Jain<mjjpjgms@gmail.com>',
+        to: 'mjain8156@gmail.com',
+        subject: `${complaint.title}`,
+        text: `complaint Received ${complaint.description}`
+    }
+    
+    transporter.sendMail(mailOptions, function (err, res) {
+        if(err){
+            console.log('Error: ', err);
+        } else {
+            console.log('Email Sent: ', res);
+        }
+    });
+}
+  else if(complaint.department==="PWD"){
+    var mailOptions = {
+        from: 'Mohit Jain<mjjpjgms@gmail.com>',
+        to: 'jiwanprakash65@gmail.com',
+        subject: `${complaint.title}`,
+        text: `complaint Received ${complaint.description}`
+    }
+    
+    transporter.sendMail(mailOptions, function (err, res) {
+        if(err){
+            console.log('Error: ', err);
+        } else {
+            console.log('Email Sent: ', res);
+        }
+    });
+  }
+    
      //complaints.push(req.body);
      res.sendStatus(200); 
     // res.json(complaints);
@@ -75,3 +125,27 @@ app.listen(1234);
 //isloggedin
 //department signup
 //admin login
+
+/*
+
+const nodemailer = require('nodemailer');
+
+const xoauth2 = require('xoauth2');
+
+
+var mailOptions = {
+    from: 'Jeevan Prakash <jhajeevanprakash65@gmail.com>',
+    to: 'mjain8156@gmail.com',
+    subject: 'Nodemailer test',
+    text: 'Hello World!!'
+}
+
+transporter.sendMail(mailOptions, function (err, res) {
+    if(err){
+        console.log('Error: ', err);
+    } else {
+        console.log('Email Sent: ', res);
+    }
+});
+
+*/
