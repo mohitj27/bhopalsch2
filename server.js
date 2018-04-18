@@ -48,3 +48,43 @@ auth.post('/register',(req,res)=>{
 app.use('/api',api);
 app.use('/auth',auth);
 app.listen(1234);
+
+/*
+
+const nodemailer = require('nodemailer');
+const smtpT = require('nodemailer-smtp-transport');
+const xoauth2 = require('xoauth2');
+
+var transporter = nodemailer.createTransport(smtpT(
+    {
+        service: 'gmail',
+        host: 'smtp.gmail.com',
+        port: 465,
+        secure: true,
+        auth: {
+            // xoauth2: xoauth2.createXOAuth2Generator({
+            //     user: 'jiwanprakash65@gmail.com',
+            //     clientId: '506386476638-371sue543p69kvgf29hibe5i8prslj1c.apps.googleusercontent.com',
+            //     clientSecret: 'qkT2WzOK1vCngZRfJOYoDBgL',
+            //     refreshToken: '1/uOkw8bE5TERc6kE7On3Qk2HhAKqlyiK8i6vgr0eyfno'
+            // })
+        }
+    }
+));
+
+var mailOptions = {
+    from: 'Jeevan Prakash <jhajeevanprakash65@gmail.com>',
+    to: 'mjain8156@gmail.com',
+    subject: 'Nodemailer test',
+    text: 'Hello World!!'
+}
+
+transporter.sendMail(mailOptions, function (err, res) {
+    if(err){
+        console.log('Error: ', err);
+    } else {
+        console.log('Email Sent: ', res);
+    }
+});
+
+*/
