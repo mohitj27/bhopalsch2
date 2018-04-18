@@ -70,3 +70,8 @@ function sendAuthError(res) {
 app.use('/api',api);
 app.use('/auth',auth);
 app.listen(1234);
+//node mailer 
+//push messaging
+//isloggedin
+//department signup
+//admin login
