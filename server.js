@@ -21,12 +21,108 @@ var transporter = nodemailer.createTransport({
 });
 
 
-
-var complaints = [{title: 'Title', department: 'THIS IS BODY', description: 'asdsfersdscsdsdsds'},
-{title: 'Title', department: 'THIS IS BODY hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh', description: 'asdsfersdscsdsdsds'},
-{title: 'Title', department: 'THIS IS BODY', description: 'asdsfersdscsdsdsds'},
-{title: 'Title', department: 'THIS IS BODY', description: 'asdsfersdscsdsdsds'},
-{title: 'Title', department: 'THIS IS BODY', description: 'asdsfersdscsdsdsds'}];
+var complaints = [
+    {
+        id: 0, title: 'Title', department: 'THIS IS BODY', 
+        description: 'Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo. Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem ipsum, quia dolor sit amet consectetur adipisci[ng] velit, sed quia non-numquam [do] eius modi tempora inci[di]dunt, ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat', 
+        status: 'open'
+    },
+    {
+        id: 1, title: 'Title', department: 'Electricity', 
+        description: 'Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo. Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem ipsum, quia dolor sit amet consectetur adipisci[ng] velit, sed quia non-numquam [do] eius modi tempora inci[di]dunt, ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat', 
+        status: 'Running'
+    },
+    {
+        id: 2, title: 'Title', department: 'THIS IS BODY', 
+        description: 'Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo. Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem ipsum, quia dolor sit amet consectetur adipisci[ng] velit, sed quia non-numquam [do] eius modi tempora inci[di]dunt, ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat', 
+        status: 'Assigned'
+    },
+    {
+        id: 3, title: 'Title', department: 'THIS IS BODY', 
+        description: 'Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo. Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem ipsum, quia dolor sit amet consectetur adipisci[ng] velit, sed quia non-numquam [do] eius modi tempora inci[di]dunt, ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat', 
+        status: 'open'
+    },
+    {
+        id: 4, title: 'Title', department: 'Electricity', 
+        description: 'Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo. Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem ipsum, quia dolor sit amet consectetur adipisci[ng] velit, sed quia non-numquam [do] eius modi tempora inci[di]dunt, ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat', 
+        status: 'close'
+    },
+    {
+        id: 5, title: 'Title', department: 'THIS IS BODY', 
+        description: 'asdsfersdscsdsdsds', 
+        status: 'open'
+    },
+    {
+        id: 6, title: 'Title', department: 'Electricity', 
+        description: 'asdsfersdscsdsdsds', 
+        status: 'Running'
+    },
+    {
+        id: 7, title: 'Title', department: 'THIS IS BODY', 
+        description: 'asdsfersdscsdsdsds', 
+        status: 'Assigned'
+    },
+    {
+        id: 8, title: 'Title', department: 'THIS IS BODY', 
+        description: 'asdsfersdscsdsdsds', 
+        status: 'open'
+    },
+    {
+        id: 9, title: 'Title', department: 'Electricity', 
+        description: 'asdsfersdscsdsdsds', 
+        status: 'close'
+    },
+    {
+        id: 10, title: 'Title', department: 'THIS IS BODY', 
+        description: 'asdsfersdscsdsdsds', 
+        status: 'open'
+    },
+    {
+        id: 11, title: 'Title', department: 'Electricity', 
+        description: 'asdsfersdscsdsdsds', 
+        status: 'Running'
+    },
+    {
+        id: 12, title: 'Title', department: 'THIS IS BODY', 
+        description: 'asdsfersdscsdsdsds', 
+        status: 'Assigned'
+    },
+    {
+        id: 13, title: 'Title', department: 'THIS IS BODY', 
+        description: 'asdsfersdscsdsdsds', 
+        status: 'open'
+    },
+    {
+        id: 14, title: 'Title', department: 'Electricity', 
+        description: 'asdsfersdscsdsdsds', 
+        status: 'close'
+    },
+    {
+        id: 15, title: 'Title', department: 'THIS IS BODY', 
+        description: 'asdsfersdscsdsdsds', 
+        status: 'open'
+    },
+    {
+        id: 16, title: 'Title', department: 'Electricity', 
+        description: 'asdsfersdscsdsdsds', 
+        status: 'Running'
+    },
+    {
+        id: 17, title: 'Title', department: 'THIS IS BODY', 
+        description: 'asdsfersdscsdsdsds', 
+        status: 'Assigned'
+    },
+    {
+        id: 18, title: 'Title', department: 'THIS IS BODY', 
+        description: 'asdsfersdscsdsdsds', 
+        status: 'open'
+    },
+    {
+        id: 19, title: 'Title', department: 'Electricity', 
+        description: 'asdsfersdscsdsdsds', 
+        status: 'close'
+    },
+];
 
 var users = [];
 app.use(bodyParser.json());
