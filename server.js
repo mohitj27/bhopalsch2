@@ -98,28 +98,28 @@ var complaints = [
         status: 'close'
     },
     {
-        id: 15, title: 'Title', department: 'THIS IS BODY', 
-        description: 'asdsfersdscsdsdsds', 
+        id: 15, title: 'Title 1', department: 'THIS IS BODY', 
+        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.", 
         status: 'open'
     },
     {
-        id: 16, title: 'Title', department: 'Electricity', 
-        description: 'asdsfersdscsdsdsds', 
-        status: 'Running'
+        id: 16, title: 'Title 2', department: 'Electricity', 
+        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.", 
+        status: 'invalid'
     },
     {
-        id: 17, title: 'Title', department: 'THIS IS BODY', 
-        description: 'asdsfersdscsdsdsds', 
-        status: 'Assigned'
+        id: 17, title: 'Title 3', department: 'THIS IS BODY', 
+        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.", 
+        status: 'assigned'
     },
     {
-        id: 18, title: 'Title', department: 'THIS IS BODY', 
-        description: 'asdsfersdscsdsdsds', 
+        id: 18, title: 'Title 4', department: 'THIS IS BODY', 
+        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.", 
         status: 'open'
     },
     {
-        id: 19, title: 'Title', department: 'Electricity', 
-        description: 'asdsfersdscsdsdsds', 
+        id: 19, title: 'Title 5', department: 'Electricity', 
+        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.", 
         status: 'close'
     },
 ];
@@ -147,7 +147,7 @@ api.post('/complaints',(req,res) => {
     complaint.id = index;
     complaint.date = new Date();
     console.log(req.body);
-    if(complaint.department==="electricity"){
+    if(complaint.dept==="electricity"){
     var mailOptions = {
         from: 'Mohit Jain<mjjpjgms@gmail.com>',
         to: 'mjain8156@gmail.com',
@@ -163,7 +163,7 @@ api.post('/complaints',(req,res) => {
         }
     });
 }
-  else if(complaint.department==="PWD"){
+  else if(complaint.dept==="education"){
     var mailOptions = {
         from: 'Mohit Jain<mjjpjgms@gmail.com>',
         to: 'jiwanprakash65@gmail.com',
@@ -209,12 +209,12 @@ auth.post('/register',(req,res)=>{
 
 auth2.post('/signupDep',(req,res)=>{
     var index = users2.push(req.body) - 1;
-    console.log(users);
+    console.log(users2);
     var user = users2[index];
     user.id = index;
     
     //sendToken(user,res);
-    sendToken(users2,res);
+    sendToken(user,res);
     console.log(req.body);
     console.log(users2);
    
