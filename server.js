@@ -125,6 +125,7 @@ var complaints = [
 ];
 
 var users = [];
+var users2 = [];
 app.use(bodyParser.json());
 
 app.use((req,res,next) => {
@@ -134,7 +135,7 @@ app.use((req,res,next) => {
 })
 var api = express.Router();
 var auth = express.Router();
-
+var auth2 = express.Router();
 api.get('/complaints',(req,res) => {
     //res.send('hello');
     res.json(complaints);
@@ -206,8 +207,34 @@ auth.post('/register',(req,res)=>{
    
 })
 
+auth2.post('/signupDep',(req,res)=>{
+    var index = users2.push(req.body) - 1;
+    console.log(users);
+    var user = users2[index];
+    user.id = index;
+    
+    //sendToken(user,res);
+    sendToken(users2,res);
+    console.log(req.body);
+    console.log(users2);
+   
+})
+
+auth2.post('/login',(req,res) =>{
+    var user =  users2.find(user =>user.email == req.body.email);
+     if(!user)
+        sendAuthError(res); 
+ 
+     if(user.password == req.body.password)
+       sendToken(user,res);
+       else 
+         sendAuthError(res);
+ })
+ 
+
 function sendToken(user,res) {
-    var token = jwt.sign(user.id,'123');
+    //var token = jwt.sign(1,'123');
+   var token = jwt.sign(user.id,'123');
     res.json({firstName: user.firstName, token});
 }
 function sendAuthError(res) {
@@ -215,6 +242,7 @@ function sendAuthError(res) {
 }
 app.use('/api',api);
 app.use('/auth',auth);
+app.use('/auth2',auth2);
 app.listen(1234);
 //node mailer 
 //push messaging
