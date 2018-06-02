@@ -9,3 +9,7 @@
 `npm install -g nodemon`
 ### Step 4:
 `nodemon server.js`
+
+
+
+###### run with frontend: https://github.com/mohitj27/bhopalSch
